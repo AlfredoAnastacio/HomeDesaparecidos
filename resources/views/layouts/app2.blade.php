@@ -5,6 +5,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="personal/js/select2.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script type="text/javascript">
+			$.validate();
+		</script>
 		{!! Html::style('bootstrap4/css/bootstrap.css') !!}
 		<!-- icons-fontawesome -->
 	 
@@ -15,10 +22,29 @@
 
 		@yield('style')
 
+		<style type="text/css">
+			.container {
+    			margin: 70px;
+			}
+			.dropdown-menu {
+ 			   text-align: center;
+ 			   margin-left: -120px;
+			}
+			div.dropdown {
+				margin-left: 470px;
+			}
+		</style>
+
 		<title>Personas desaparecidas</title>
 	</head>
 
 	<body class="bg-light">
+		@php
+
+            Session::put('nombre', 'Francisco');
+            Session::put('region', 'Xalapa,Veracruz');
+
+        @endphp
 		<header>
 			<!-- Fixed navbar -->
 			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -34,18 +60,21 @@
 						<li class="nav-item">
 							<a class="nav-link" href="{!! route('desaparecido.create') !!}">Formulario</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Cerrar sesión</a>
-						</li>
 					</ul>
-					<form class="form-inline mt-2 mt-md-0">
-						<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-					</form>
+					<div class="dropdown dropdown-toggle">
+						<a href="#" data-toggle="dropdown">
+							{{ HTML::image('images/perfil.png', 'profile', array('width' => '40', 'height' => '40', 'class' => 'rounded-circle'))}}
+						</a>
+                		<ul class="dropdown-menu">
+                   		 	<li>Fiscal {{ Session::get('nombre') }}</li>
+                    		<li>{{ Session::get('region') }}</li>
+                    		<div class="dropdown-divider"></div>
+                    		<a class="dropdown-item" href="">Regresar a UIPJ</a>
+                		</ul>
+					</div>
 				</div>
 			</nav>
 		</header>
-
 		<main role="main" class="container">
 			@yield('content')
 		</main>

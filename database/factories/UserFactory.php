@@ -36,7 +36,7 @@ $factory->define(App\Models\Persona::class, function (Faker $faker) {
 		'nombres' => $faker->name,
 		'primerAP' => $faker->lastName,
 		'segundoAP' => $faker->lastName,
-		'fechaNacimiento' => $faker->date($format = 'Y-m-d', $max = ''),
+		'fechaNacimiento' => $faker->date($format = 'd/m/Y', $max = ''),
 		'curp' => str_random(18),
 		'rfc' => str_random(8),
 		'idNacionalidad' => $faker->randomElement($nacionalidades),
@@ -54,8 +54,9 @@ $factory->define(App\Models\Desaparecido::class, function (Faker $faker) {
 	return [
 		'apodo' => $faker->name,		
 		'edadAparente' => $faker->numberBetween($min = 1, $max = 120),		
-		'embarazo' => $faker->randomElement([0 ,1]),
-		'periodoGestacion' => $faker->numberBetween($min = 1, $max = 9),
+		'embarazo' => $faker->randomElement(['NO','SI', 'LO IGNORAN']),
+		'gestacionSemanas' => $faker->numberBetween($min = 1, $max = 9),
+		'gestacionMeses' => $faker->numberBetween($min = 1, $max = 9),
 		'rumoresBebe' => $faker->randomElement(['SI','NO','LO IGNORAN']),
 		'pormenores' => $faker->sentence(10),
 		'antecedentesJudiciales' => $faker->randomElement([0 ,1]),
@@ -95,9 +96,11 @@ $factory->define(App\Models\Antecedente::class, function (Faker $faker) {
 });
 
 $factory->define(App\Models\Domicilio::class, function (Faker $faker) {	
-	$municipios = App\Models\CatEstadoCivil::all()->pluck('id')->toArray();
-	$localidades = App\Models\CatOcupacion::all()->pluck('id')->toArray();
-	$colonias = App\Models\CatEscolaridad::all()->pluck('id')->toArray();
+	$estados = App\Models\CatEstado::all()->pluck('id')->toArray();
+	$municipios = App\Models\CatMunicipio::all()->pluck('id')->toArray();
+	$localidades = App\Models\CatLocalidad::all()->pluck('id')->toArray();
+	$colonias = App\Models\CatColonia::all()->pluck('id')->toArray();
+	$codigos = App\Models\CatColonia::all()->pluck('id')->toArray();
 	$desaparecidos = App\Models\Persona::all()->pluck('id')->toArray();
 
 	return [
@@ -107,8 +110,10 @@ $factory->define(App\Models\Domicilio::class, function (Faker $faker) {
 		'numInterno' => $faker->numberBetween($min = 1, $max = 1500),
 		'telefono' => $faker->phoneNumber,
 		'idMunicipio' => $faker->randomElement($municipios),
+		'idMunicipio' => $faker->randomElement($municipios),
 		'idLocalidad' => $faker->randomElement($localidades),
 		'idColonia' => $faker->randomElement($colonias),
+		'idCodigoPostal' => $faker->randomElement($codigos),
 		'idDesaparecido' => $faker->randomElement($desaparecidos)
 	];
 });

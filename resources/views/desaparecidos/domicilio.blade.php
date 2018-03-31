@@ -1,55 +1,86 @@
-
-
-<div class="form-group row " id ="divAgregarDomicilio"><!--Este es el grupo para el boton "Agregar domicilio" -->
-		<button type = "button" id="agregarDomicilio" class="btn btn-primary">Agregar domicilio
-		</button>
-</div>
+<div class="card border-success">
+	<div class="card-header">
+		<h5 class="card-title">Domicilio actual o último del extraviado
+		<button type="button" id="btnAddDomicilio" class="btn btn-primary float-right">Agregar otro domicilio</button>
+		</h5>
 		
-
-<div class="form-group row " id ="divAgregarDomicilio">
-		<div class="form-group col-4">
-		        {!! Form::label ('lblTipoDireccion','Tipo de domicilio') !!}
-		        {!! Form::select ('tipoDireccion',$option,'', ['class' => 'form-control'] )!!}
+	</div>
+	<div class="card-body">		
+		<div class="row">
+			<div class="form-group col-2">
+				{!! Form::label ('tipoDireccion','Tipo de domicilio:') !!}
+				{!! Form::select ('tipoDireccion[]',$tiposDireccion,'', ['class' => 'form-control', 'id' => 'tipoDireccion'] )!!}
+			</div>
+			<div class="form-group col">
+				{!! Form::label ('calle','Calle:') !!}
+				{!! Form::text ('calle[]',old('Calle'), ['class' => 'form-control', 'placeholder' => 'Calle'] )!!}
+			</div>
+			<div class="form-group col-2">
+				{!! Form::label ('numExterno','Número exterior:') !!}
+				{!! Form::text ('numExterno[]',old('numExterno'), ['class' => 'form-control', 'placeholder' => 'Num. Ext.'] )!!}
+			</div>
+			<div class="form-group col-2">
+				{!! Form::label ('numInterno','Número Interior:') !!}
+				{!! Form::text ('numInterno[]',old('numInterno'), ['class' => 'form-control', 'placeholder' => 'Num. Int.'] )!!}
+			</div>
 		</div>
-		<div class="form-group col-4">
-		        {!! Form::text ('telefono',old('Numero telefonico'), ['class' => 'form-control', 'placeholder' => 'Telefono'] )!!}
+		<div class="row">
+			<div class="form-group col">
+				{!! Form::label ('idEstado','Estado:') !!}
+				{!! Form::select ('idEstado[]',$estados,'', ['class' => 'form-control', 'id' => 'idEstado'] )!!}
+			</div>
+			<div class="form-group col">
+				{!! Form::label ('idMunicipio','Municipio:') !!}
+				{!! Form::select ('idMunicipio[]',$municipios,'', ['class' => 'form-control', 'id' => 'idMunicipio'] )!!}
+			</div>
+			<div class="form-group col">
+				{!! Form::label ('idLocalidad','Localidad:') !!}
+				{!! Form::select ('idLocalidad[]',$localidades,'', ['class' => 'form-control', 'id' => 'idLocalidad'] )!!}
+			</div>
+			<div class="form-group col">
+				{!! Form::label ('idColonia','Colonia:') !!}
+				{!! Form::select ('idColonia[]',$colonias,'', ['class' => 'form-control', 'id' => 'idColonia'] )!!}
+			</div>		
 		</div>
+		<div class="row">
+			<div class="form-group col">
+				{!! Form::label ('idCodigoPostal','Código postal:') !!}
+				{!! Form::select ('idCodigoPostal[]',$codigos,'', ['class' => 'form-control', 'id' => 'idCodigoPostal'] )!!}
+			</div>	
+			<div class="form-group col">
+					{!! Form::label ('telefono','Teléfono:') !!}
+					{!! Form::text ('telefono[]',old('telefono'), ['class' => 'form-control'] ) !!}
+			</div>			
+		</div>
+		<div class="f1-buttons">
+			<button type="button" class="btn btn-previous">Previous</button>
+            <button type="button" class="btn btn-next">Next</button>
+        </div>
+		<hr class="my-4">		
+	</div>
 </div>
-<div class="form-group row " id ="divAgregarDomicilio">
-		<div class="form-group col-4">
-		        {!! Form::text ('calle',old('Calle'), ['class' => 'form-control', 'placeholder' => 'Calle'] )!!}
-		</div>
-		<div class="form-group col-2">
-		        {!! Form::text ('numExterior',old('Numero Exterior'), ['class' => 'form-control', 'placeholder' => 'Num. Ext.'] )!!}
-		</div>
-		<div class="form-group col-2">
-		        {!! Form::text ('numInterior',old('Numero Interior'), ['class' => 'form-control', 'placeholder' => 'Num. Int.'] )!!}
-		</div>
-</div>
-<div class="form-group row " id ="divAgregarDomicilio">
-		<div class="form-group col-2">
-		        {!! Form::select ('codigoPostal',$codigos,'', ['class' => 'form-control'] )!!}
-		</div>
-		<div class="form-group col-3">
-		        {!! Form::select ('municipios',$municipios,'', ['class' => 'form-control'] )!!}
-		</div>
-		<div class="form-group col-3">
-		        {!! Form::select ('localidades',$localidades,'', ['class' => 'form-control'] )!!}
-		</div>
-		<div class="form-group col-3">
-		        {!! Form::select ('colonias',$colonias,'', ['class' => 'form-control'] )!!}
-		</div>
-</div>
 
-<div class="form-group row " id ="guardarDomicilio"><!--Este es el grupo para el boton "Agregar domicilio" -->
-		<button type = "button" id="guardar" class="btn btn-primary">Guardar
-		</button>
-</div>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		/*$('#tipo').select2({
+			width : "100%",
+		});
 
-<div>
-		<h2> Listado de direcciones
+		$('#codigo').select2({
+			width : "100%",
+		});
 
-		</h2>
+		$('#municipio').select2({
+			width : "100%",
+		});
 
-		
-</div>
+		$('#localidad').select2({
+			width : "100%",
+		});
+
+		$('#colonia').select2({
+			width : "100%",
+		});*/
+	});
+</script>
