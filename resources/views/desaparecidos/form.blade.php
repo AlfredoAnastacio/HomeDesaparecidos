@@ -5,7 +5,6 @@
 	{!! Html::style('css/select2.css') !!}
 	{!! Html::style('personal/css/select2.min.css') !!}
 	{!! Html::style('css/select2-bootstrap.css') !!}
-	{!! Html::style('css/styleWi.css') !!}
 @endsection
 
 @section('content')
@@ -25,7 +24,7 @@
 		@include('desaparecidos.domicilio')
 
 		@include('desaparecidos.datosidentidad')
-		{!! Form::submit('Agregar datos'); !!}
+		{!! Form::submit('Agregar datos', ['class' => 'btn btn-large btn-primary openbutton']); !!}
 	{!! Form::close() !!}
 
 @endsection
@@ -38,7 +37,7 @@
 	{!! HTML::script('personal/js/datosgral.js') !!}
 	{!! HTML::script('personal/js/domicilio.js') !!}
 	{!! HTML::script('personal/js/select2.min.js') !!}
-	{!! HTML::script('personal/js/retina-1.1.0.min.js') !!}
-	{!! HTML::script('personal/js/scripts.js') !!}
-	{!! HTML::script('personal/js/jquery.backstretch.min.js') !!}
+	 <script type="text/javascript">
+			$.validate();
+		</script>
 @endsection

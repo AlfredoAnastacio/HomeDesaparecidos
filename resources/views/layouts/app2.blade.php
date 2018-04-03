@@ -8,7 +8,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="personal/js/select2.min.js"></script>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script type="text/javascript">
 			$.validate();
 		</script>
@@ -80,7 +79,7 @@
 		</main>
 		<footer class="footer">
 			<div class="container">
-				<span class="text-muted">Place sticky footer content here.</span>
+				<span class="text-muted">Fiscalia General Del Estado De Veracruz</span>
 			</div>
 		</footer>
 		<!-- Bootstrap core JavaScript

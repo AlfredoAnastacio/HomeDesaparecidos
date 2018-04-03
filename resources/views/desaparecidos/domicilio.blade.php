@@ -1,7 +1,7 @@
 <div class="card border-success">
 	<div class="card-header">
 		<h5 class="card-title">Domicilio actual o último del extraviado
-		<button type="button" id="btnAddDomicilio" class="btn btn-primary float-right">Agregar otro domicilio</button>
+		<!--<button type="button" id="btnAddDomicilio" class="btn btn-primary float-right">Agregar otro domicilio</button>-->
 		</h5>
 		
 	</div>
@@ -13,15 +13,15 @@
 			</div>
 			<div class="form-group col">
 				{!! Form::label ('calle','Calle:') !!}
-				{!! Form::text ('calle[]',old('Calle'), ['class' => 'form-control', 'placeholder' => 'Calle'] )!!}
+				{!! Form::text ('calle[]','', ['class' => 'form-control mayuscula'] )!!}
 			</div>
 			<div class="form-group col-2">
 				{!! Form::label ('numExterno','Número exterior:') !!}
-				{!! Form::text ('numExterno[]',old('numExterno'), ['class' => 'form-control', 'placeholder' => 'Num. Ext.'] )!!}
+				{!! Form::text ('numExterno[]','', ['class' => 'form-control mayuscula'] )!!}
 			</div>
 			<div class="form-group col-2">
-				{!! Form::label ('numInterno','Número Interior:') !!}
-				{!! Form::text ('numInterno[]',old('numInterno'), ['class' => 'form-control', 'placeholder' => 'Num. Int.'] )!!}
+				{!! Form::label ('numInterno','Número interior:') !!}
+				{!! Form::text ('numInterno[]','', ['class' => 'form-control mayuscula'] )!!}
 			</div>
 		</div>
 		<div class="row">
@@ -49,13 +49,9 @@
 			</div>	
 			<div class="form-group col">
 					{!! Form::label ('telefono','Teléfono:') !!}
-					{!! Form::text ('telefono[]',old('telefono'), ['class' => 'form-control'] ) !!}
+					{!! Form::text ('telefono[]','', ['class' => 'form-control'] ) !!}
 			</div>			
 		</div>
-		<div class="f1-buttons">
-			<button type="button" class="btn btn-previous">Previous</button>
-            <button type="button" class="btn btn-next">Next</button>
-        </div>
 		<hr class="my-4">		
 	</div>
 </div>
