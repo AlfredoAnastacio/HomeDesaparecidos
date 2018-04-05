@@ -47,20 +47,7 @@
 		<header>
 			<!-- Fixed navbar -->
 			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-				<a class="navbar-brand" href="#">UIPJ</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarCollapse">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{!! route('desaparecido.create') !!}">Formulario</a>
-						</li>
-					</ul>
-					<div class="dropdown dropdown-toggle">
+				<div class="dropdown dropdown-toggle">
 						<a href="#" data-toggle="dropdown">
 							{{ HTML::image('images/perfil.png', 'profile', array('width' => '40', 'height' => '40', 'class' => 'rounded-circle'))}}
 						</a>
@@ -71,6 +58,19 @@
                     		<a class="dropdown-item" href="">Regresar a UIPJ</a>
                 		</ul>
 					</div>
+				<a class="navbar-brand" href="#">UIPJ</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{!! route('desaparecido.create') !!}">Formulario</a>						
+						</li>
+					</ul>					
 				</div>
 			</nav>
 		</header>

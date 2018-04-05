@@ -37,6 +37,7 @@
 	{!! HTML::script('personal/js/datosgral.js') !!}
 	{!! HTML::script('personal/js/domicilio.js') !!}
 	{!! HTML::script('personal/js/select2.min.js') !!}
+	{!! HTML::script('personal/js/ladas.js') !!}
 	 <script type="text/javascript">
 			$.validate();
 		</script>

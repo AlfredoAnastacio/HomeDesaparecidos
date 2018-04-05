@@ -27,4 +27,8 @@ Route::get('colonias/{id}', 'DomiciliosController@getColonias');
 Route::get('codigos2/{id}', 'DomiciliosController@getCodigos2');
 
 
+Route::resource('nacionalidad','LadaController');
+Route::get('nacionalidad/{id}', 'LadaController@getLadas');
+
+
 

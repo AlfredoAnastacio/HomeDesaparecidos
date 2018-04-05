@@ -24,4 +24,8 @@ class CatNacionalidad extends Model
 	{
 		return $this->hasMany('App\Models\Persona', 'idNacionalidad', 'id');
 	}
+
+	public static function lada($id){
+        return CatNacionalidad::where('id', '=', $id)->get();
+    }
 }
